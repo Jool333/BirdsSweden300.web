@@ -1,0 +1,57 @@
+@model IList<BirdsSweden300.web.ViewModel.Birds.BirdListViewModel>
+@{
+    var url = Url.Action("ToggleSeenBirds", "birds");
+}
+<section class="page">
+    <h1 class="page-title">Sveriges arter</h1>
+    @*
+    <div class="gallery-wrapper">
+        <div class="gallery-card">
+            <input type="checkbox" name="hideSeenChecked" id="hideSeenChecked" onclick="lsRemeberMe();">
+            <label for="hideSeenChecked">Dölj sedda fåglar</label>
+        </div>
+
+    </div>
+*@
+    <div class="gallery-wrapper">
+        @foreach (var bird in Model)
+        {
+            <div class="gallery-card">
+                <div>@bird.Name</div>
+                <img src="@bird.ImageUrl" alt="@bird.Name">
+                <div><span>@bird.Name</span></div>
+                <div class="buttons-container">
+                    <a class="btn btn-dark" asp-action="details" , asp-controller="birds" , asp-route-id="@bird.Id">Se
+                        mer</a>
+                    <a class="btn btn-dark" asp-action="Edit" , asp-controller="birds" ,
+                    asp-route-id="@bird.Id">Redigera</a>
+                    <a class="btn btn-warning" asp-action="MarkAsSeen" , asp-controller="birds" ,
+                    asp-route-id="@bird.Id">Sedd</a>
+
+                </div>
+            </div>
+        }
+    </div>
+</section>
+
+<script>
+    const rmCheck = document.getElementById("hideSeenChecked");
+
+    if (localStorage.checkbox && localStorage.checkbox !== "") {
+        rmCheck.setAttribute("checked", "checked");
+    } else {
+        rmCheck.removeAttribute("checked");
+    }
+    function lsRememberMe() {
+        if (rmCheck.checked !== "") {
+            localStorage.checkbox = rmCheck.value;
+        } else {
+            localStorage.checkbox = "";
+        }
+        window.location.href = '@Url.Action("ToggleSeenBirds", "Birds")/'
+    }
+
+    function CallController() {
+        window.location.href = '@Url.Action("ToggleSeenBirds", "Birds")/'
+    }
+</script>

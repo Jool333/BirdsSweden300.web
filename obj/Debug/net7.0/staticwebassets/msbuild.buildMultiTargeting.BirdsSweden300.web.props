@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\BirdsSweden300.web.props" />
+</Project>

@@ -1,0 +1,56 @@
+[
+  {
+    "id": 1,
+    "name": "Blåmes",
+    "species": "C. caeruleus",
+    "genus": "Cyanistes",
+    "family": "Paridae",
+    "description": "Small blue bird",
+    "imageUrl": "blames.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Talgoxe",
+    "species": "P. major",
+    "genus": "Parus",
+    "family": "Paridae",
+    "description": "Small bird",
+    "imageUrl": "talgoxe.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Rödhake",
+    "species": "E. rubecula",
+    "genus": "Erithacus",
+    "family": "Muscicapidae",
+    "description": "Small brown and red bird",
+    "imageUrl": "rodhake.jpg"
+  },
+  {
+    "id": 4,
+    "name": "Kråka",
+    "species": "C. cornix",
+    "genus": "Corvus",
+    "family": "Corvidae",
+    "description": "Grey and black bird",
+    "imageUrl": "kraka.jpg"
+  },
+  {
+    "id": 5,
+    "name": "Steglits",
+    "species": "C. carduelis",
+    "genus": "Carduelis",
+    "family": "Fringillidae",
+    "description": "Small colourfull bird",
+    "imageUrl": "steglits.jpg"
+  },
+  {
+    "id": 6,
+    "name": "Domherre",
+    "species": "P. pyrrhula",
+    "genus": "Pyrrhula",
+    "family": "Fringillidae",
+    "description": "Small red bird",
+    "imageUrl": "domherre.jpg"
+  }
+]

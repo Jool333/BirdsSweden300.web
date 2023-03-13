@@ -1,0 +1,39 @@
+@model BirdsSweden300.web.ViewModel.Birds.BirdPostViewModel
+
+<section class = "page">
+    <h1 class = " page-title">Lägg till bil</h1>
+    <form asp-action="create">
+        <div class = "form-control">
+            <label asp-for="Name"></label>
+            <input asp-for = "Name"type="text">
+            <span class = "error" asp-validation-for="Name"></span>
+        </div>
+        <div class = "form-control">
+            <label asp-for="Species"></label>
+            <input asp-for = "Species"type="text">
+            <span class = "error" asp-validation-for="Species"></span>
+        </div>
+        <div class = "form-control">
+            <label asp-for="Genus"></label>
+            <input asp-for = "Genus"type="text">
+            <span class = "error" asp-validation-for="Genus"></span>
+        </div>
+        <div class = "form-control">
+            <label asp-for="Family"></label>
+            <input asp-for = "Family"type="text">
+            <span class = "error" asp-validation-for="Family"></span>
+        </div>
+        <div class = "form-control">
+            <label asp-for="Description"></label>
+            <textarea name="Description" id="Description" cols="30" rows="10"></textarea>
+            <span class = "error" asp-validation-for="Description"></span>
+        </div>
+        <div class = "form-control">
+            <div class = "buttons-container">
+                <button class = "btn btn-primary">Spara</button>
+                <a asp-action="Index" class = "btn btn-warning">Avbryt</a>
+            </div>
+        </div>
+    </form>    
+</section>
+
