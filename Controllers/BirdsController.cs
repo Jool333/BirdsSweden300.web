@@ -2,7 +2,6 @@ using System.Text.Json;
 using BirdsSweden300.web.Data;
 using BirdsSweden300.web.ViewModel.Birds;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 
 namespace BirdsSweden300.web.Controllers
 {
@@ -23,14 +22,11 @@ namespace BirdsSweden300.web.Controllers
             _options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
         }
 
-        public async Task<IActionResult> Index(bool Checked = false)
+        public async Task<IActionResult> Index()
         {
             using var client = _httpClient.CreateClient();
             var response = await client.GetAsync($"{_baseUrl}/birds");
-            if(Checked == true){
-                response = await client.GetAsync($"{_baseUrl}/birds/hideseen");    
-            }
-            
+
             if (!response.IsSuccessStatusCode) return Content("Oops det gick fel");
 
             var json = await response.Content.ReadAsStreamAsync();
@@ -83,13 +79,9 @@ namespace BirdsSweden300.web.Controllers
         {
             using var client = _httpClient.CreateClient();
 
-            var seenBird = await _context.Birds.SingleOrDefaultAsync(c => c.Id == id);
-
-            var response = await client.PatchAsJsonAsync($"{_baseUrl}/birds/seen/{id}", seenBird);
+            var response = await client.PatchAsJsonAsync($"{_baseUrl}/birds/seen/{id}", id);
 
             if (!response.IsSuccessStatusCode) return Content("Oops det gick fel");
-
-            //var json = await response.Content.ReadAsStringAsync();
 
             return RedirectToAction(nameof(Index));
         }
@@ -97,7 +89,7 @@ namespace BirdsSweden300.web.Controllers
         public IActionResult ToggleSeenBirds()
         {
             hideSeenChecked = !hideSeenChecked;
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction("Index", hideSeenChecked);
         }
     }
 }

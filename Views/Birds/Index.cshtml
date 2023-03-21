@@ -1,20 +1,27 @@
 @model IList<BirdsSweden300.web.ViewModel.Birds.BirdListViewModel>
 @{
     var url = Url.Action("ToggleSeenBirds", "birds");
+    var check = ;
+    
 }
 <section class="page">
     <h1 class="page-title">Sveriges arter</h1>
-    @*
+
     <div class="gallery-wrapper">
         <div class="gallery-card">
-            <input type="checkbox" name="hideSeenChecked" id="hideSeenChecked" onclick="lsRemeberMe();">
+            <input type="checkbox" id="hideSeen">
             <label for="hideSeenChecked">Dölj sedda fåglar</label>
+            <select name="Sort" onchange="this.form.submit()">
+                <option value="1">Artnamn A-Ö</option>
+                <option value="2">Artnamn Ö-A</option>
+                <option value="3">Ingen sortering</option>
+            </select>
         </div>
 
     </div>
-*@
+
     <div class="gallery-wrapper">
-        @foreach (var bird in Model)
+        @foreach (var bird in Model.Where(m => m.Seen == ))
         {
             <div class="gallery-card">
                 <div>@bird.Name</div>
@@ -35,23 +42,9 @@
 </section>
 
 <script>
-    const rmCheck = document.getElementById("hideSeenChecked");
-
-    if (localStorage.checkbox && localStorage.checkbox !== "") {
-        rmCheck.setAttribute("checked", "checked");
-    } else {
-        rmCheck.removeAttribute("checked");
-    }
-    function lsRememberMe() {
-        if (rmCheck.checked !== "") {
-            localStorage.checkbox = rmCheck.value;
-        } else {
-            localStorage.checkbox = "";
-        }
-        window.location.href = '@Url.Action("ToggleSeenBirds", "Birds")/'
+    var checkbox = document.getElementById("hideSeen");
+    function isChecked() {
+        var checkbox = document.querySelector('hideSeen').checked;
     }
 
-    function CallController() {
-        window.location.href = '@Url.Action("ToggleSeenBirds", "Birds")/'
-    }
 </script>
