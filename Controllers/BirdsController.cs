@@ -8,7 +8,6 @@ namespace BirdsSweden300.web.Controllers
     [Route("Birds")]
     public class BirdsController : Controller
     {
-        private bool hideSeenChecked;
         private readonly BirdsContext _context;
         private readonly string _baseUrl;
         private readonly JsonSerializerOptions _options;
@@ -60,7 +59,7 @@ namespace BirdsSweden300.web.Controllers
         }
 
         [HttpPost("Create")]
-        public async Task<IActionResult> Create(BirdPostViewModel bird)
+        public async Task<IActionResult> Create(BirdPostViewModel bird, IFormFile file)
         {
             using var client = _httpClient.CreateClient();
 
@@ -85,11 +84,22 @@ namespace BirdsSweden300.web.Controllers
 
             return RedirectToAction(nameof(Index));
         }
-        [HttpGet("toggleSeen")]
-        public IActionResult ToggleSeenBirds()
+        /*
+        [HttpGet("upload/{id}")]
+        public async Task<IActionResult> UploadImage(int id, IFormFile file)
         {
-            hideSeenChecked = !hideSeenChecked;
-            return RedirectToAction("Index", hideSeenChecked);
+            if (file is null && file.Length <= 0)
+            {
+                return Content("Oops det gick fel");
+            }
+            using var client = _httpClient.CreateClient();
+
+            var response = await client.PatchAsJsonAsync($"{_baseUrl}/birds/seen/{id}", id);
+
+            if (!response.IsSuccessStatusCode) return Content("Oops det gick fel");
+
+            return RedirectToAction(nameof(Index));
         }
+        */
     }
 }

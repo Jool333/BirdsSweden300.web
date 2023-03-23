@@ -1,12 +1,10 @@
 @model IList<BirdsSweden300.web.ViewModel.Birds.BirdListViewModel>
 @{
-    var url = Url.Action("ToggleSeenBirds", "birds");
-    var check = ;
     
 }
 <section class="page">
     <h1 class="page-title">Sveriges arter</h1>
-
+    @*
     <div class="gallery-wrapper">
         <div class="gallery-card">
             <input type="checkbox" id="hideSeen">
@@ -15,14 +13,23 @@
                 <option value="1">Artnamn A-Ö</option>
                 <option value="2">Artnamn Ö-A</option>
                 <option value="3">Ingen sortering</option>
-            </select>
+            </select>y
         </div>
 
     </div>
+    *@
+    
 
     <div class="gallery-wrapper">
-        @foreach (var bird in Model.Where(m => m.Seen == ))
+        @foreach (var bird in Model)
         {
+            @*
+            @if (bird.Seen == true)
+            {
+               
+            }
+            else{
+            *@
             <div class="gallery-card">
                 <div>@bird.Name</div>
                 <img src="@bird.ImageUrl" alt="@bird.Name">
@@ -32,11 +39,34 @@
                         mer</a>
                     <a class="btn btn-dark" asp-action="Edit" , asp-controller="birds" ,
                     asp-route-id="@bird.Id">Redigera</a>
+                @if (bird.Seen == true)
+                {
                     <a class="btn btn-warning" asp-action="MarkAsSeen" , asp-controller="birds" ,
-                    asp-route-id="@bird.Id">Sedd</a>
-
+                    asp-route-id="@bird.Id">Markera som ej sedd</a>
+                }
+                else
+                {
+                    <a class="btn btn-warning" asp-action="MarkAsSeen" , asp-controller="birds" ,
+                    asp-route-id="@bird.Id">Markera som sedd</a>
+                }    
                 </div>
+
+                @*
+                    @if (bird.ImageUrl == "http://localhost:5000/images/no-bird.png")
+                {
+                    <div class="form-control" id="upload" value="@bird.ImageUrl">
+                        <div class="buttons-container">
+                            <input type="file" name="image" />
+                            <a class="btn btn-dark" asp-action="UploadImage" , asp-controller="birds" , asp-route-id="@bird.Id">
+                                Ladda upp Bild</a>
+                        </div>
+                    </div>
+                }
+                *@
+                
+
             </div>
+            //}
         }
     </div>
 </section>
@@ -44,7 +74,7 @@
 <script>
     var checkbox = document.getElementById("hideSeen");
     function isChecked() {
-        var checkbox = document.querySelector('hideSeen').checked;
+        var isCheckbox = checkbox.checked;
+        return isCheckbox;
     }
-
 </script>

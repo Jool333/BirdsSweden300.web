@@ -33,6 +33,10 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "C:\\Users\\Johan\\source\\repos\\BirdsSweden300.web\\wwwroot\\images\\landing.jpg",
+      "PackagePath": "staticwebassets\\images\\landing.jpg"
+    },
+    {
       "Id": "C:\\Users\\Johan\\source\\repos\\BirdsSweden300.web\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },

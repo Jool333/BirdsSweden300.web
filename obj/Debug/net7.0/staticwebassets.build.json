@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "5XxcJb+1wqPU2k+vpJ65vlc2MjlMhVm8Fd8PR0j0+6Y=",
+  "Hash": "KVRBaM088vqgLTnyKK8mMPkTfpAqpxBsfxfeuJP9uyM=",
   "Source": "BirdsSweden300.web",
   "BasePath": "_content/BirdsSweden300.web",
   "Mode": "Default",
@@ -151,6 +151,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "C:\\Users\\Johan\\source\\repos\\BirdsSweden300.web\\wwwroot\\images\\landing.jpg",
+      "SourceId": "BirdsSweden300.web",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Johan\\source\\repos\\BirdsSweden300.web\\wwwroot\\",
+      "BasePath": "_content/BirdsSweden300.web",
+      "RelativePath": "images/landing.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\landing.jpg"
     },
     {
       "Identity": "C:\\Users\\Johan\\source\\repos\\BirdsSweden300.web\\wwwroot\\js\\site.js",
